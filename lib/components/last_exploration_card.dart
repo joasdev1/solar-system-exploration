@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:solar_system/models/planet.dart';
 
 class LastExplorationCard extends StatelessWidget {
+  final double width;
+  final double height;
   final Planet planet;
 
   const LastExplorationCard({
+    required this.width,
+    required this.height,
     required this.planet,
     Key? key,
   }) : super(key: key);
@@ -19,8 +23,8 @@ class LastExplorationCard extends StatelessWidget {
       shadowColor: const Color(0xff151056),
       child: Container(
         clipBehavior: Clip.hardEdge,
-        width: MediaQuery.of(context).size.width,
-        height: 144,
+        width: width,
+        height: height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
@@ -32,7 +36,6 @@ class LastExplorationCard extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              // bottom: 50,
               bottom: planet.id == "6" || planet.id == "7" ? 28 : 50,
               left: 16,
               child: Container(
@@ -53,11 +56,6 @@ class LastExplorationCard extends StatelessWidget {
                   height: 163,
                   width: 163,
                 ),
-                // Image.asset(
-                //   planet.image,
-                //   height: 163,
-                //   width: 163,
-                // ),
               ),
             ),
             Positioned(

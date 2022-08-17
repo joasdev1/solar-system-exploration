@@ -20,7 +20,7 @@ class _GetStartedState extends State<GetStarted> {
     await prefs.setInt('getStarted', isViewed);
   }
 
-  void _navigatorToHome() {
+  void _toHome() {
     Navigator.of(context).pushReplacementNamed(Routes.home);
   }
 
@@ -91,7 +91,7 @@ class _GetStartedState extends State<GetStarted> {
               Text(
                 'Explore\nThe Universe',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline2,
               ),
               const SizedBox(
                 height: 12,
@@ -100,7 +100,7 @@ class _GetStartedState extends State<GetStarted> {
                 text: 'Get Started',
                 onTap: () async {
                   await _getStarted();
-                  _navigatorToHome();
+                  _toHome();
                 },
               )
             ],

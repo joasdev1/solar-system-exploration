@@ -1,11 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:solar_system/components/last_exploration_card.dart';
 import 'package:solar_system/components/navigation_drawer.dart';
 import 'package:solar_system/components/planet_card.dart';
 import 'package:solar_system/data/planet_data.dart';
 import 'package:solar_system/utils/routes.dart';
+import 'package:solar_system/main.dart';
 import '../utils/colors.dart' as color;
 
 class Home extends StatefulWidget {
@@ -19,9 +19,19 @@ class _HomeState extends State<Home> {
   String dropdownValue = "Planets";
   List<String> dropdownItems = ['Planets', 'Others'];
 
-  int planetIndex = 0;
   int activePage = 0;
+  int planetIndexTapped = 0;
   bool selected = false;
+
+  _savePlanetData(int index) async {
+    setState(() {
+      lastPlanetIndex = index;
+    });
+
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setInt('lastPlanet', planetIndexTapped);
+  }
 
   List<Widget> indicators(cardsLength, currentIndex) {
     return List<Widget>.generate(cardsLength, (index) {
@@ -115,29 +125,35 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         SizedBox(height: constraints.maxHeight * 0.02),
-                        Stack(
-                          children: [
-                            Container(
-                              height: constraints.maxHeight * 0.25,
-                              padding: const EdgeInsets.only(right: 26),
-                              child: LastExplorationCard(
-                                width: MediaQuery.of(context).size.width,
-                                height: MediaQuery.of(context).size.height,
-                                planet: planetData[6],
-                              ),
-                            ),
-                            Positioned(
-                              right: 58,
-                              child: SizedBox(
-                                height: constraints.maxHeight * 0.24,
-                                child: Image.asset(
-                                  'assets/images/others/Astronaut2.png',
-
-                                  // fit: BoxFit.cover,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(Routes.planetDetails, arguments: planetData[lastPlanetIndex]);
+                          },
+                          child: Stack(
+                            children: [
+                              Container(
+                                height: constraints.maxHeight * 0.25,
+                                padding: const EdgeInsets.only(right: 26),
+                                child: LastExplorationCard(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height,
+                                  planet: planetData[lastPlanetIndex],
                                 ),
                               ),
-                            ),
-                          ],
+                              Positioned(
+                                right: 58,
+                                child: SizedBox(
+                                  height: constraints.maxHeight * 0.24,
+                                  child: Image.asset(
+                                    'assets/images/others/Astronaut2.png',
+
+                                    // fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(height: constraints.maxHeight * 0.03),
                         SizedBox(
@@ -182,9 +198,11 @@ class _HomeState extends State<Home> {
                                 },
                                 itemBuilder: (BuildContext context, int index) {
                                   return GestureDetector(
-                                    onTap: () {
+                                    onTap: () async {
                                       Navigator.of(context)
                                           .pushNamed(Routes.planetDetails, arguments: planetData[index]);
+
+                                      await _savePlanetData(index);
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(60.0),

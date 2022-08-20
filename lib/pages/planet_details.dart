@@ -91,7 +91,7 @@ class _PlanetDetailsState extends State<PlanetDetails> {
                         padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 20.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
                               planet.name,
@@ -99,8 +99,10 @@ class _PlanetDetailsState extends State<PlanetDetails> {
                               // textAlign: TextAlign.justify,
                               // style: Theme.of(context).textTheme.headline1,
                             ),
-                            Expanded(
+                            SizedBox(
+                              height: 100,
                               child: SingleChildScrollView(
+                                physics: const BouncingScrollPhysics(),
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 8.0),
                                   child: Text(

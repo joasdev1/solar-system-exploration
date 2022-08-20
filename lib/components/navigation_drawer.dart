@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../utils/colors.dart' as color;
 
 class NavigationDrawer extends StatelessWidget {
@@ -10,37 +11,56 @@ class NavigationDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [
-                  color.Colors.purple,
-                  color.Colors.darkBlue,
-                  color.Colors.blue,
-                ],
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.30,
+            child: const DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    color.Colors.purple,
+                    color.Colors.blue,
+                  ],
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  opacity: .6,
+                  image: AssetImage(
+                    'assets/images/others/Stars2.png',
+                  ),
+                ),
+                boxShadow: [BoxShadow(blurRadius: 15)],
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(100)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(top: 28.0),
+                child: Text(
+                  'Solar System Exploration',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
-            child: Text('Cabeçalho'),
           ),
-          ListTile(
-            leading: const Icon(
-              Icons.home,
-            ),
-            title: const Text('Page 1'),
-            onTap: () {
-              Navigator.pop(context);
-            },
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.6,
           ),
-          ListTile(
-            leading: const Icon(
-              Icons.home,
+          Container(
+            height: MediaQuery.of(context).size.height * 0.1,
+            alignment: Alignment.center,
+            child: ListTile(
+              leading: const Icon(
+                Icons.exit_to_app_rounded,
+                color: color.Colors.darkBlue,
+              ),
+              title: const Text('Exit'),
+              onTap: () {
+                SystemNavigator.pop();
+              },
             ),
-            title: const Text('Page 1'),
-            onTap: () {
-              Navigator.pop(context);
-            },
           ),
         ],
       ),

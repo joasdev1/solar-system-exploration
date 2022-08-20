@@ -20,17 +20,14 @@ class _HomeState extends State<Home> {
   List<String> dropdownItems = ['Planets', 'Others'];
 
   int activePage = 0;
-  int planetIndexTapped = 0;
   bool selected = false;
 
   _savePlanetData(int index) async {
-    setState(() {
-      lastPlanetIndex = index;
-    });
+    lastPlanetIndex = index;
 
     final prefs = await SharedPreferences.getInstance();
 
-    await prefs.setInt('lastPlanet', planetIndexTapped);
+    await prefs.setInt('lastPlanet', index);
   }
 
   List<Widget> indicators(cardsLength, currentIndex) {
@@ -128,7 +125,7 @@ class _HomeState extends State<Home> {
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context)
-                                .pushNamed(Routes.planetDetails, arguments: planetData[lastPlanetIndex]);
+                                .pushNamed(Routes.planetDetails, arguments: planetData[lastPlanetIndex ?? 0]);
                           },
                           child: Stack(
                             children: [
@@ -138,7 +135,7 @@ class _HomeState extends State<Home> {
                                 child: LastExplorationCard(
                                   width: MediaQuery.of(context).size.width,
                                   height: MediaQuery.of(context).size.height,
-                                  planet: planetData[lastPlanetIndex],
+                                  planet: planetData[lastPlanetIndex ?? 0],
                                 ),
                               ),
                               Positioned(
@@ -200,7 +197,8 @@ class _HomeState extends State<Home> {
                                   return GestureDetector(
                                     onTap: () async {
                                       Navigator.of(context)
-                                          .pushNamed(Routes.planetDetails, arguments: planetData[index]);
+                                          .pushNamed(Routes.planetDetails, arguments: planetData[index])
+                                          .then((e) => setState(() {}));
 
                                       await _savePlanetData(index);
                                     },
@@ -230,38 +228,38 @@ class _HomeState extends State<Home> {
                     );
                   },
                 ),
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: planetData[activePage].id == "6" || planetData[activePage].id == "7" ? 160 : 200,
-          right: planetData[activePage].id == "6" || planetData[activePage].id == "7" ? 20 : 0,
-          child: Container(
-            height: planetData[activePage].id == "6" || planetData[activePage].id == "7"
-                ? MediaQuery.of(context).size.height * 0.40
-                : MediaQuery.of(context).size.height * 0.28,
-            width: planetData[activePage].id == "6" || planetData[activePage].id == "7"
-                ? MediaQuery.of(context).size.height * 0.40
-                : 241,
-            decoration: BoxDecoration(
-              shape: planetData[activePage].id == "6" || planetData[activePage].id == "7"
-                  ? BoxShape.rectangle
-                  : BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(
-                  planetData[activePage].image,
+                Positioned(
+                  bottom: planetData[activePage].id == "6" || planetData[activePage].id == "7" ? 120 : 170,
+                  right: planetData[activePage].id == "6" || planetData[activePage].id == "7" ? 20 : 0,
+                  child: Container(
+                    height: planetData[activePage].id == "6" || planetData[activePage].id == "7"
+                        ? MediaQuery.of(context).size.height * 0.40
+                        : MediaQuery.of(context).size.height * 0.28,
+                    width: planetData[activePage].id == "6" || planetData[activePage].id == "7"
+                        ? MediaQuery.of(context).size.height * 0.40
+                        : 241,
+                    decoration: BoxDecoration(
+                      shape: planetData[activePage].id == "6" || planetData[activePage].id == "7"
+                          ? BoxShape.rectangle
+                          : BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          planetData[activePage].image,
+                        ),
+                      ),
+                      boxShadow: planetData[activePage].id == "6" || planetData[activePage].id == "7"
+                          ? []
+                          : [
+                              BoxShadow(
+                                color: planetData[activePage].boxShadow,
+                                blurRadius: 60.0,
+                                offset: const Offset(-8, 10),
+                              )
+                            ],
+                    ),
+                  ),
                 ),
-              ),
-              boxShadow: planetData[activePage].id == "6" || planetData[activePage].id == "7"
-                  ? []
-                  : [
-                      BoxShadow(
-                        color: planetData[activePage].boxShadow,
-                        blurRadius: 60.0,
-                        offset: const Offset(-8, 10),
-                      )
-                    ],
+              ],
             ),
           ),
         ),

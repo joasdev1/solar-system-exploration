@@ -25,9 +25,9 @@ class PanelWidget extends StatelessWidget {
             // clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 image: AssetImage(
-                  planet.id == "3" ? planet.imageGallery[0] : "",
+                  planet.id == "3" ? planet.imageGallery[0] : planet.image,
                 ),
               ),
               border: Border.all(color: const Color(0xffFFFFFF).withOpacity(0.3), width: 4),
@@ -39,9 +39,9 @@ class PanelWidget extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 image: AssetImage(
-                  planet.id == "3" ? planet.imageGallery[1] : "",
+                  planet.id == "3" ? planet.imageGallery[1] : planet.image,
                 ),
               ),
               border: Border.all(color: const Color(0xffFFFFFF).withOpacity(0.3), width: 4),
@@ -53,9 +53,9 @@ class PanelWidget extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 image: AssetImage(
-                  planet.id == "3" ? planet.imageGallery[2] : "",
+                  planet.id == "3" ? planet.imageGallery[2] : planet.image,
                 ),
               ),
               border: Border.all(color: const Color(0xffFFFFFF).withOpacity(0.3), width: 4),

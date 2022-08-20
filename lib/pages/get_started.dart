@@ -96,12 +96,18 @@ class _GetStartedState extends State<GetStarted> {
               const SizedBox(
                 height: 12,
               ),
-              SwipeButton(
-                text: 'Get Started',
-                onTap: () async {
-                  await _getStarted();
-                  _toHome();
-                },
+              Card(
+                elevation: 20,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: SwipeButton(
+                  text: 'Get Started',
+                  onTap: () async {
+                    await _getStarted();
+                    _toHome();
+                  },
+                ),
               )
             ],
           ),

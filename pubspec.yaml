@@ -38,7 +38,14 @@ dependencies:
   slidable_button: ^2.0.0+1
   shared_preferences: ^2.0.15
 
+
 dev_dependencies:
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  image_path: "assets/icon.png"
+  android: true
+  
   flutter_test:
     sdk: flutter
 

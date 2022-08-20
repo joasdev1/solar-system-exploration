@@ -22,11 +22,12 @@ class PanelWidget extends StatelessWidget {
           Container(
             width: 97,
             height: 100,
+            // clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 image: AssetImage(
-                  planet.id == "3" ? planet.imageGallery[0] : planet.image,
+                  planet.id == "3" ? planet.imageGallery[0] : "",
                 ),
               ),
               border: Border.all(color: const Color(0xffFFFFFF).withOpacity(0.3), width: 4),
@@ -38,9 +39,9 @@ class PanelWidget extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 image: AssetImage(
-                  planet.id == "3" ? planet.imageGallery[1] : planet.image,
+                  planet.id == "3" ? planet.imageGallery[1] : "",
                 ),
               ),
               border: Border.all(color: const Color(0xffFFFFFF).withOpacity(0.3), width: 4),
@@ -52,9 +53,9 @@ class PanelWidget extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 image: AssetImage(
-                  planet.id == "3" ? planet.imageGallery[2] : planet.image,
+                  planet.id == "3" ? planet.imageGallery[2] : "",
                 ),
               ),
               border: Border.all(color: const Color(0xffFFFFFF).withOpacity(0.3), width: 4),

@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/joasdc/solar-system/master/assets/icon.png" alt="Expenses app logo" width="60" height="60">
-  <h1>Expenses App</h1>
+  <img src="https://raw.githubusercontent.com/joasdc/solar-system/master/assets/icon.png" alt="Solar System app logo" width="60" height="60">
+  <h1>Solar System</h1>
 </div>
 
 ## ℹ️ About

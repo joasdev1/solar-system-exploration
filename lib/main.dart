@@ -8,7 +8,7 @@ import 'package:solar_system/pages/planet_details.dart';
 import './utils/routes.dart';
 
 int? isViewed;
-int lastPlanetIndex = 0;
+int? lastPlanetIndex;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +18,7 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
 
   isViewed = prefs.getInt('getStarted');
-  lastPlanetIndex = prefs.getInt('lastPlanet')!;
+  lastPlanetIndex = prefs.getInt('lastPlanet');
 
   runApp(const MyApp());
 }

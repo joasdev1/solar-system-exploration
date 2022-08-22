@@ -8,7 +8,9 @@ The Solar System is an app built with Flutter with the aim of showing informatio
 
 ## 📱 Screenshots
 
-<img src="assets/screenshots/1.png" alt="Screenshot 1" height="400"/> | <img src="assets/screenshots/2.png" alt="Screenshot 2" height="400"/> | <img src="assets/screenshots/3.png" alt="Screenshot 3" height="400"/>
+Get Started            |  Home Page          |  Planet Details
+:-------------------------:|:-------------------------:|:-------------------------:
+![](assets/screenshots/1.png)  |  ![](assets/screenshots/2.png) | ![](assets/screenshots/3.png)
 
 > Inspired by the design of: <a href="https://dribbble.com/wprwahyu">Wahyu Pratama</a> 
 
@@ -53,7 +55,7 @@ This repository is under MIT license. You can see the <a href="https://github.co
 <a href="https://www.linkedin.com/in/joasdc/">
  <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/C4D03AQH4sYZRhONAiw/profile-displayphoto-shrink_800_800/0/1650252057565?e=1666224000&v=beta&t=vJ88nbSWGfTGg65U7dtJwOSFyIp99lsZ7i4P35LSORQ" width="100px;" alt=""/>
  <br />
- <sub><b>Idelfonso Joás</b></sub></a> <a href="https://blog.rocketseat.com.br/author/thiago//" title="Rocketseat">🚀</a>
+ <sub><b>Idelfonso Joás</b></sub> 🚀 </a> 
 
 
 Made with ❤️ by Idelfonso Joás. Contact me!

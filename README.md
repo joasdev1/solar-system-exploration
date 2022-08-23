@@ -23,7 +23,7 @@ Install flutter at: https://docs.flutter.dev/get-started/install
 $ git clone https://github.com/joasdc/solar-system.git
 
 - Enter in directory:
-$ cd solar-system
+$ cd solar-system-exploration
 
 - Install dependencies:
 $ flutter pub get

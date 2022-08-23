@@ -1,10 +1,10 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/joasdc/solar-system/master/assets/icon.png" alt="Solar System app logo" width="60" height="60">
-  <h1>Solar System</h1>
+  <h1>Solar System Exploration</h1>
 </div>
 
 ## ℹ️ About
-The Solar System is an app built with Flutter with the aim of showing information about our inspired solar system through beautiful design.
+The Solar System Exploration is an app built with Flutter with the aim of showing information about our inspired solar system through beautiful design.
 
 ## 📱 Screenshots
 

@@ -51,13 +51,6 @@ $ git push origin my-feature
 This repository is under MIT license. You can see the <a href="https://github.com/joasdc/solar-system/blob/master/LICENSE.md">LICENSE</a> file for more details. 
 
 ## Author
-
-<a href="https://www.linkedin.com/in/joasdc/">
- <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/C4D03AQH4sYZRhONAiw/profile-displayphoto-shrink_800_800/0/1650252057565?e=1666224000&v=beta&t=vJ88nbSWGfTGg65U7dtJwOSFyIp99lsZ7i4P35LSORQ" width="100px;" alt=""/>
- <br />
- <sub><b>Idelfonso Joás</b></sub> 🚀 </a> 
-
-
 Made with ❤️ by Idelfonso Joás. Contact me!
 
 [![Linkedin Badge](https://img.shields.io/badge/-Joás-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/joasdc/)](https://www.linkedin.com/in/joasdc/) 
